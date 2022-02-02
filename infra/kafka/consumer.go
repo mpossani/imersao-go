@@ -16,11 +16,11 @@ func NewConsumer(configMap *ckafka.ConfigMap, topics []string) *Consumer {
 
 func (c Consumer) Consume(msgChan chan *ckafka.Message) error {
 	consumer, err := ckafka.NewConsumer(c.ConfigMap)
-	if err != Nil {
+	if err != nil {
 		panic(err)
 	}
 	err = consumer.SubscribeTopics(c.Topics, nil)
-	if err != Nil {
+	if err != nil {
 		panic(err)
 	}
 	for {
