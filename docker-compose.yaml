@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    volumes: 
+      - .:/go/src/
+
+  mysql:
+    image: mysql:5.7
+    volumes: 
+      - ./.docker/dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=fullcycle
+      - MYSQL_ROOT_PASSWORD=root
+
+# (...) Zookeeper + Kafka
